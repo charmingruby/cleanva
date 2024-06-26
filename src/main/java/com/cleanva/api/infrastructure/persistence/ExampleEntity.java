@@ -1,4 +1,4 @@
-package com.cleanva.api.model;
+package com.cleanva.api.infrastructure.persistence;
 
 import java.util.UUID;
 
@@ -9,12 +9,17 @@ import jakarta.persistence.Table;
 
 @Table(name = "examples")
 @Entity
-public class Example {
+public class ExampleEntity {
     @Id
     @GeneratedValue
     private UUID id;
     private String name;
     private String description;
+
+    public ExampleEntity(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public UUID getId() {
         return id;
